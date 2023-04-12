@@ -9,7 +9,7 @@ import {Ionicons} from '@expo/vector-icons';
 export default function App() {
 
 
-  const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}`;
+  // const url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${process.env.REACT_APP_API_KEY}`;
 
   let { results } = getAPI(url);
   const [like, setLike] = useState(false);
@@ -19,11 +19,9 @@ export default function App() {
     Haptics.selectionAsync();
     console.log('like', like);
   }
-  // q: how to make the icon change color when it is pressed?
-  // a: use the state to change the color of the icon
   return (
     <NativeBaseProvider>
-      <Heading textAlign="center" mt="50px"> This week's trending Movie </Heading>
+      <Heading textAlign="center" mt="50px"> trending Movies </Heading>
       <Box safeArea alignItems="center" >
         <FlatList
           data={results}
@@ -91,13 +89,8 @@ export default function App() {
   );
 }
 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   icons: {
     margin: 10,
   }
